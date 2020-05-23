@@ -43,22 +43,49 @@
                    </div>
                 </div>
                 <div class="row">
-                	<div class="col-sm-12">
+                	<div class="col-sm-6">
                 		<div class="form-group">
                 			<label class="control-label">Product: &nbsp;&nbsp;</label>
                 			<span><?php echo $product['pro_title'];?></span>
                 		</div>
                 	</div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Product Code: &nbsp;&nbsp;</label>
+                      <span><?php echo $product['id'];?></span>
+                      <input type="hidden" value="<?php echo $product['id'];?>" name="product_id">
+                    </div>
+                  </div>
+                </div>
+
+                <?php if(!empty($installment)):?>
+                  <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Leasing amount (Rs.): &nbsp;&nbsp;</label>
+                      <span><?php echo $installment['leasing_amount'];?></span>
+                      <input type="hidden" value="<?php echo $installment['leasing_amount'];?>" name="leasing_amount">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Installment plan: &nbsp;&nbsp;</label>
+                      <span><?php echo $installment['installment_plan'];?> months plan</span>
+                      <input type="hidden" value="<?php echo $installment['installment_plan'];?>" name="installment_plan">
+                    </div>
+                  </div>
                 </div>
                 <div class="row">
-                	<div class="col-sm-12">
-                		<div class="form-group">
-                			<label class="control-label">Product Code: &nbsp;&nbsp;</label>
-                			<span>150</span>
-                			<input type="hidden" value="<?php echo $product['id'];?>" name="product_id">
-                		</div>
-                	</div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Monthly installment (Rs.): &nbsp;</label>
+                      <span><?php echo $installment['monthly_installment'];?></span>
+                      <input type="hidden" value="<?php echo $installment['monthly_installment'];?>" name="monthly_installment">
+                    </div>
+                  </div>
                 </div>
+              <?php endif;?>
+              
                 <div class="row">
                    <div class="col-sm-12">
                       <div class="form-group">

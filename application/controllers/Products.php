@@ -35,6 +35,7 @@ class Products extends CI_Controller {
 	 	$data['brands']=$this->Home_model->get_brands_data();
 		$data['row']=$this->Product_model->get_product_detail_data($id);
 		$data['top_brands']=$this->Home_model->get_top_brands_data();
+		$data['script'] = 'product_detail';
 		
 		$this->load->view('Header/header');
 		$this->load->view('Top_bar/top_bar');

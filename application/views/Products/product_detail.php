@@ -52,7 +52,6 @@
                      <div class="price-box">
                         <h5>
                            <span class="product-price">Price : <?php echo $r->pro_oprice; ?></span>
-                            
                         </h5>
                      </div>
                      <div class="ratings">
@@ -67,15 +66,58 @@
                      </div>
                      <div class="short-description">
                         <h4>
-                           Quick Overview  
+                           Installment Calculator
                            <span class="pull-right">Availability: <strong class="badge badge-success">In Stock</strong></span>
                         </h4>
                         <p><?php echo $r->pro_des; ?></p>
+                        <input value="<?php echo $r->pro_oprice; ?>" type="hidden" id="product_price">
                      </div>
                       
                      <div class="product-variation">
-                        <form action="#" method="post">
-                           <a href="<?php echo base_url('index.php/Home/inquiry/'.$r->id)?>" class="btn btn-theme-round btn-lg"> <i class="fa fa-shopping-cart"></i> Submit Inquiry</a>
+                        <div class="row">
+                            <div class="col-sm-12">
+                               <div class="form-group">
+                                  <label class="control-label">Leasing Amount</label>
+                                  <input class="form-control border-form-control" value="<?php echo $r->pro_oprice; ?>" type="text" name="leasing_amount" id="leasing_amount" disabled>
+                               </div>
+                            </div>
+                            <div class="col-sm-12">
+                               <div class="form-group">
+                                  <label class="control-label">Down Payment (%)</label>
+                                  <input class="form-control border-form-control" value="20" min="20" type="number" name="down_payment" id="down_payment_percentage">
+                               </div>
+                            </div>
+                         </div>
+
+                         <div class="row">
+                            <div class="col-sm-12">
+                               <div class="radio">
+                                <label><input type="radio" name="optradio" month="3" class="installment_plan" value="18"> 3 months installment plan</label>
+                              </div>
+                              <div class="radio">
+                                <label><input type="radio" name="optradio" month="6" class="installment_plan" value="28"> 6 months installment plan</label>
+                              </div>
+                              <div class="radio">
+                                <label><input type="radio" name="optradio" month="12" class="installment_plan" value="38"> 12 months installment plan</label>
+                              </div>
+                              <div class="radio">
+                                <label><input type="radio" name="optradio" month="18" class="installment_plan" value="45"> 18 months installment plan</label>
+                              </div>
+                            </div>
+                         </div>
+                         <br>
+                         <div class="row" style="display: none;" id="monthly_installment_box">
+                            <div class="col-sm-12">
+                               <h4>Monthly installment (Rs.)</h4>
+                               <h5 id="monthly_installment"></h5>
+                            </div>
+                         </div>
+                         <br>
+                        <form action="<?php echo base_url('index.php/Home/inquiry/'.$r->id)?>" method="POST" id="form" style="display: none;">
+                           <input type="hidden" name="leasing_amount" id="leasing_amount_hidden">
+                           <input type="hidden" name="installment_plan" id="installment_plan_hidden">
+                           <input type="hidden" name="monthly_installment" id="monthly_installment_hidden">
+                           <button class="btn btn-theme-round btn-lg"><i class="fa fa-shopping-cart"></i> Submit Inquiry</button>
                         </form>
                      </div>
                      

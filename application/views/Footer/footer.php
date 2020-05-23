@@ -106,5 +106,8 @@
       <script src="<?php echo base_url('assets/js/select2.min.js'); ?>"></script>
       <!-- Owl Carousel -->
       <script src="<?php echo base_url('assets/js/owl.carousel.js'); ?>"></script>
+      <?php if(!empty($script)){?>
+         <script type="text/javascript" src="<?php echo base_url('assets/js/'.$script.'.js'); ?>"></script>
+      <?php }?>
    </body>
 </html>

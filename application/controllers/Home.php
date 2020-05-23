@@ -52,6 +52,7 @@ class Home extends CI_Controller {
 		$data['brands']=$this->Home_model->get_brands_data();
 		$data['top_brands']=$this->Home_model->get_top_brands_data();
 		$data['product'] = $this->Home_model->get_product($product_id);
+		$data['installment'] = $this->input->post();
 
 		$this->load->view('Header/header');
 		$this->load->view('Top_bar/top_bar');
@@ -93,7 +94,11 @@ class Home extends CI_Controller {
 		$phone = $this->input->post('phone');
 		$product_id = $this->input->post('product_id');
 		$description = $this->input->post('description');
-		$address = 'intizarhussain@live.com';
+		$leasing_amount = $this->input->post('leasing_amount');
+		$installment_plan = $this->input->post('installment_plan');
+		$monthly_installment = $this->input->post('monthly_installment');
+		//$address = 'intizarhussain@live.com';
+		$address = 'hamza.ahmad0932@gmail.com';
 
 		$subject = 'Product inquiry by: '.$first_name;
 		
@@ -102,6 +107,9 @@ class Home extends CI_Controller {
 	    $data['product']['cus_phone'] = $phone;
 	    $data['product']['cus_email'] = $email;
 	    $data['product']['description'] = $description;
+	    $data['product']['leasing_amount'] = $leasing_amount;
+	    $data['product']['monthly_installment'] = $monthly_installment;
+	    $data['product']['installment_plan'] = $installment_plan;
 	    
 		$message = $this->load->view('Mail/mail', $data, TRUE);
 		

@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $host = $_SERVER['HTTP_HOST'];
 if($host=='localhost:8080' or $host=='localhost')
 {
-	$config['base_url'] = 'http://localhost/app1';
+	$config['base_url'] = 'http://localhost/public_html';
 }else{
 	$config['base_url'] = 'http://paradisecentre.com.pk';
 }

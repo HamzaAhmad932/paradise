@@ -78,8 +78,8 @@ if($host=='localhost:8080' or $host=='localhost')
 {
 	//localhost credentials
 	$username = 'root';
-	$password = 'password';
-	$database = 'paradise';
+	$password = '';
+	$database = 'paradise_db';
 
 }else{
 	//cpanel credentials
